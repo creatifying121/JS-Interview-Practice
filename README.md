@@ -174,3 +174,107 @@ Temporal Dead Zone can create a huge mess, it can lead to a lot of unexpected
 errors. To avoid this TDZ, we should always keep our declarations and initializations on the top of the scope, so that as soon as code runs, it hits the initialization part first then we go with logics.
 
 This phenomena of avoiding TDZ is called, shrinking the Temporal Dead Zone to zero.
+
+## Block, Scope and Shadowing in JS
+
+### Block
+
+Block is also called "Compound Statement". It is used to combine multiple statements into a group.
+
+```javascript
+{
+}
+```
+
+Above is a perfectly valid JS code. These curly braces represent a block.
+
+### Need of Blocks
+
+We need these blocks, so that we can use multiple statements in a place where JS expects only one statement. Let's see below example:
+
+```javascript
+if (true) console.log("hello"); // here if the condition is evaluated to true, then hello will be logged on the console.
+```
+
+But, what if we want to execute some more code whenever the condition is evaluated to true. So, when we write that more code below the first statement, it will not be treated as the code written in if statement.
+
+```javascript
+if (true) console.log("hello");
+let sum = 10 + 10; // this will not be considered to be a part of if statement. it is independent loc
+```
+
+In this scenario, block comes into the picture. It will bind or combine multiple statements so that they can be executed.
+
+```javascript
+if (true) {
+  let sum = 9 + 19;
+  console.log("Hello, sum is ", sum); // Hello, sum is 28
+}
+```
+
+### What is a block scope?
+
+```javascript
+{
+  // what all variables and functions we can access inside this block, is the block scope
+}
+```
+
+Let's understand it better with following example:
+
+```javascript
+{
+  var a = 10;
+  let b = 20;
+  const c = 30;
+
+  console.log(a); // 10
+  console.log(b); // 20
+  console.log(c); // 30
+}
+console.log(a); // 10
+console.log(b); // ReferenceError: b is not defined
+console.log(c);
+```
+
+Explanation: all three variables a, b and c are hoisted but in a different manner. a is hoisted in global scope as it has var declaration, while b and c are hoisted in a separate block scope. Hence, when we tried accessing them outside the block, we were able to access only a and not b and c.
+
+### Shadowing
+
+Shadowing in JavaScript occurs when a variable declared within a certain scope has the same name as a variable in a higher scope. When you reference that variable name within the inner scope, it "shadows" or hides the variable from the outer scope.
+
+Imagine you have two boxes, one big and one small, with the same label on them. When you look inside the small box, you only see what's in it, not what's in the big box with the same label. Similarly, in JavaScript, if you have a variable declared inside a smaller scope (like a function), it "shadows" or covers up a variable with the same name in a bigger scope (like the global scope). So, when you refer to that variable inside the smaller scope, JavaScript only sees the one inside that scope, not the bigger one outside.
+
+Example 1:
+
+```javascript
+var a = 10;
+{
+  var a = 100;
+  let b = 20;
+  const c = 30;
+
+  console.log(a); // 100
+  console.log(b); // 20
+  console.log(c); // 30
+}
+
+console.log(a); // 100 (this variable got shadowed and since it was created using var declaration, shadowing happened in global scope itself)
+```
+
+Example 2:
+
+```javascript
+let b = 10;
+{
+  var a = 100;
+  let b = 20;
+  const c = 30;
+
+  console.log(a); // 100
+  console.log(b); // 20
+  console.log(c); // 30
+}
+
+console.log(b); // 10 (this variable got shadowed and since it was created using let declaration, shadowing happened in block scope, while the variable in outer scope was in the Script, hence the value did not change)
+```
