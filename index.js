@@ -56,5 +56,9 @@ var b = 100;
 */
 
 // ========================= Block, Scope and Shadowing in JS ==========================
-
+// Illegal Shadowing
+// let a = 10;
+// {
+//   var a = 10; // SyntaxError: Identifier 'a' has already been declared
+// }
 // =====================================================================================

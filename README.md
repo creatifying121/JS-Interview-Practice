@@ -214,6 +214,8 @@ if (true) {
 
 ### What is a block scope?
 
+Block scope in JavaScript refers to the visibility of variables declared within a block of code, such as within curly braces `{}`. These variables are only accessible within that specific block and are not visible outside of it.
+
 ```javascript
 {
   // what all variables and functions we can access inside this block, is the block scope
@@ -278,3 +280,50 @@ let b = 10;
 
 console.log(b); // 10 (this variable got shadowed and since it was created using let declaration, shadowing happened in block scope, while the variable in outer scope was in the Script, hence the value did not change)
 ```
+
+Similar to the example 2, same happens in case of using const declaration.
+
+**In case of functions also, the shadowing concept takes place**
+Example:
+
+```javascript
+const c = 100;
+function x() {
+  const c = 30;
+  console.log(c);
+}
+
+x(); // 30
+console.log(c); // 100
+```
+
+### Illegal Shadowing
+
+**let with var cannot be shadowed but vice-versa is possible**
+
+Example:
+
+```javascript
+let a = 10;
+{
+  var a = 10; // SyntaxError: Identifier 'a' has already been declared
+}
+```
+
+```javascript
+var a = 10;
+{
+  let a = 10; // no issues
+}
+```
+
+```javascript
+var a = 10;
+{
+  var a = 10; // no issues
+}
+```
+
+**If a variable is shadowing something, it should not cross the boundary of its scope**
+
+## Closures
