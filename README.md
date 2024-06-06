@@ -325,11 +325,3 @@ var a = 10;
 **If a variable is shadowing something, it should not cross the boundary of its scope**
 
 ## Closures
-
-```javascript I'm A tab
-console.log("Code Tab A");
-```
-
-```javascript I'm tab B
-console.log("Code Tab B");
-```
