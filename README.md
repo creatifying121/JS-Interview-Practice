@@ -247,9 +247,9 @@ Shadowing in JavaScript occurs when a variable declared within a certain scope h
 
 Imagine you have two boxes, one big and one small, with the same label on them. When you look inside the small box, you only see what's in it, not what's in the big box with the same label. Similarly, in JavaScript, if you have a variable declared inside a smaller scope (like a function), it "shadows" or covers up a variable with the same name in a bigger scope (like the global scope). So, when you refer to that variable inside the smaller scope, JavaScript only sees the one inside that scope, not the bigger one outside.
 
-Example 1:
+Examples:
 
-```javascript
+```javascript Example 1
 var a = 10;
 {
   var a = 100;
@@ -264,9 +264,7 @@ var a = 10;
 console.log(a); // 100 (this variable got shadowed and since it was created using var declaration, shadowing happened in global scope itself)
 ```
 
-Example 2:
-
-```javascript
+```javascript Example 2
 let b = 10;
 {
   var a = 100;
@@ -301,23 +299,23 @@ console.log(c); // 100
 
 **let with var cannot be shadowed but vice-versa is possible**
 
-Example:
+Examples:
 
-```javascript
+```javascript Example 1
 let a = 10;
 {
   var a = 10; // SyntaxError: Identifier 'a' has already been declared
 }
 ```
 
-```javascript
+```javascript Example 2
 var a = 10;
 {
   let a = 10; // no issues
 }
 ```
 
-```javascript
+```javascript Example 3
 var a = 10;
 {
   var a = 10; // no issues
