@@ -325,3 +325,16 @@ var a = 10;
 **If a variable is shadowing something, it should not cross the boundary of its scope**
 
 ## Closures
+
+Closure means, a function bind together with its lexical environment.
+
+```javascript
+function x() {
+  var a = 21;
+  function y() {
+    console.log(a); // here the closure is formed, this function y is bundled together with its lexical environment (the variable from function x)
+  }
+  y();
+}
+x();
+```
