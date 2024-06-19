@@ -88,5 +88,50 @@ var b = 100;
 // z(); // 100 900 : this is because function y has formed closures along with x and z, hence it holds reference to its lexical parent's variables thus the values printed are the values which were declared in its parent's lexical environments
 // =====================================================================================
 
-// ============================== setTimeout + Closures ===============================
+// ============================== setTimeout + Closures ================================
+// function x() {
+//   var a = 11;
+//   setTimeout(function () {
+//     console.log(a);
+//   }, 3000); // value of a will be printed after 3 seconds.
+// }
+
+// function x() {
+//   var a = 11;
+//   setTimeout(function () {
+//     console.log(a);
+//   }, 3000); // value of a will be printed after 3 seconds.
+
+//   console.log("Hey there!"); // first this statement will be printed, then program will wait for the timer to expire, and then, value of a will be printed.
+// }
+
+// function x() {
+//   var a = 11;
+//   setTimeout(function () {
+//     console.log(a);
+//   }, 3000); // value of a will be printed after 3 seconds.
+
+//   for (let i = 0; i < 20; i++) {
+//     console.log("hii"); // this for loop was completely executed, then only after 3 seconds the value of a was printed
+//   }
+// }
+// x();
+
+// function x() {
+//   for (var i = 1; i <= 5; i++) {
+//     setTimeout(function () {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+// }
+// x();
+
+function x() {
+  for (let i = 1; i <= 5; i++) {
+    setTimeout(function () {
+      console.log(i);
+    }, i * 1000);
+  }
+}
+x();
 // =====================================================================================

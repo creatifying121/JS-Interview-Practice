@@ -343,4 +343,12 @@ x();
 
 `setTimeout()` method sets a timer which executes a function or specified piece of code once the timer expires.
 
-`setTimeout()` is an asynchronous function, meaning that the timer function will not pause execution of other functions in the functions stack. In other words, you cannot use setTimeout() to create a "pause" before the next function in the function stack fires.
+`setTimeout()` is an asynchronous function, meaning that the timer function will not pause execution of other functions in the functions stack. In other words, you cannot use `setTimeout()` to create a "pause" before the next function in the function stack fires.
+
+`setTimeout()` takes a callback function as parameter. Following is the syntax:
+
+```javascript
+setTimeout(function () {
+  console.log("I am a setTimeout function");
+}, 1000); // here 1000 is 1 second timer.
+```
