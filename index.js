@@ -64,5 +64,29 @@ var b = 100;
 // =====================================================================================
 
 // ================================== Closures in JS ===================================
+// function x() {
+//   var a = 21;
+//   function y() {
+//     console.log(a); // here the closure is formed, this function y is bundled together with its lexical environment (the variable from function x)
+//   }
+//   y();
+// }
+// x();
 
+// function z() {
+//   var b = 900;
+//   function x() {
+//     var a = 21;
+//     function y() {
+//       console.log(a, b);
+//     }
+//     a = 100;
+//     y();
+//   }
+//   x();
+// }
+// z(); // 100 900 : this is because function y has formed closures along with x and z, hence it holds reference to its lexical parent's variables thus the values printed are the values which were declared in its parent's lexical environments
+// =====================================================================================
+
+// ============================== setTimeout + Closures ===============================
 // =====================================================================================
