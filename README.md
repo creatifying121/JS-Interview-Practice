@@ -352,3 +352,34 @@ setTimeout(function () {
   console.log("I am a setTimeout function");
 }, 1000); // here 1000 is 1 second timer.
 ```
+
+### Interview Question: Print 1 to 5, such that 1 is printed after 1 second, 2 after 2 seconds .... 5 after 5 seconds.
+
+```javascript
+for (let i = 1; i <= 5; i++) {
+  setTimeout(function () {
+    console.log(i);
+  }, i * 1000);
+}
+```
+
+#### Without using let
+
+As we can see the previous solution, it is working because `let` is block scoped and hence in every iteration, a new copy of `i` is created, whereas, if we use `var` in above code, it will print `6` every time, because JavaScript will not wait, it will run the loop till the end and after that `setTimeout` will start executing.
+
+So, basically we need such a solution where, in every iteration, a new copy of `i` is provided to the `setTimeout` method. So, we can use the concept of Closures, and when we will wrap `setTimeout` in a function so that the callback function creates a closure with the lexical environment of function `close()` then in each iteration, a new value of `i` is passed as parameter into that function, and thus below code will work just fine.
+
+```javascript
+for (var i = 1; i <= 5; i++) {
+  function close(i) {
+    setTimeout(function () {
+      console.log(i);
+    }, i * 1000);
+  }
+  close(i);
+}
+```
+
+## Diving deep into the Functions - The Jargon Mystery
+
+### Function Statement

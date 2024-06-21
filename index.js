@@ -126,12 +126,46 @@ var b = 100;
 // }
 // x();
 
-function x() {
-  for (let i = 1; i <= 5; i++) {
-    setTimeout(function () {
-      console.log(i);
-    }, i * 1000);
-  }
+// Quick fix of the above problem
+// function x() {
+//   for (let i = 1; i <= 5; i++) {
+//     setTimeout(function () {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+// }
+// x();
+
+// but what if we are told to use "var" only and still it should work fine
+// Explanation in Readme
+// function x() {
+//   for (let i = 1; i <= 5; i++) {
+//     function close(i) {
+//       setTimeout(function () {
+//         console.log(i);
+//       }, i * 1000);
+//     }
+//     close(i);
+//   }
+// }
+// x();
+// =====================================================================================
+
+// ========================= Jargons in Functions: A Mystery ===========================
+function fun() {
+  return function xyz() {
+    console.log("Hey");
+  };
 }
-x();
+console.log(fun());
+// =====================================================================================
+
+// =============================== Callback Functions ==================================
+function x(y) {
+  console.log("x");
+  y();
+}
+x(function y() {
+  console.log("y");
+});
 // =====================================================================================
