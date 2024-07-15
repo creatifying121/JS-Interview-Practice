@@ -87,3 +87,31 @@ console.log(reduceValll);
 //some => return boolean : to check if a particular thing/element exists in an array or not
 
 //every => return boolean : to check if a particular thing/element exists in an array or not , but it checks every element
+
+// promises
+function myFun(val) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if (val < 5) {
+        res("success"); // any data type param can be passed
+      } else {
+        rej("404");
+      }
+    }, 3000);
+  });
+}
+myFun(5)
+  .then((res) => {
+    console.log(res + "1");
+    // return myFun(3);
+  })
+  .catch((error) => {
+    console.log(error + "1");
+    // return myFun(5);
+  })
+  .then((res) => {
+    console.log(res + "2");
+  })
+  .catch((error) => {
+    console.log(error + "2");
+  });
