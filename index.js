@@ -161,11 +161,125 @@ var b = 100;
 // =====================================================================================
 
 // =============================== Callback Functions ==================================
-function x(y) {
-  console.log("x");
-  y();
-}
-x(function y() {
-  console.log("y");
-});
+// function x(y) {
+//   console.log("x");
+//   y();
+// }
+// x(function y() {
+//   console.log("y");
+// });
+// =====================================================================================
+
+// ============================= Higher order Functions ================================
+
+// // a function that takes another function as an argument or returns any function from it, that is known as higher order function , below is a small example
+// function x() {
+//   console.log("hi");
+// }
+// function y(x) {
+//   x();
+// }
+// // in the above example function y() is a higher order function as it takes function x() as an argument. and function x() is a callback function as it will get invoked only when function y() is invoked
+
+// // let's understand this with another example
+
+// // let's say we are given an array of radii of circle, and we need to calculate its area, so we will do something like below:
+const radius = [3, 1, 2, 4];
+// const calculateArea = function (radius) {
+//   const output = [];
+
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(Math.PI * radius[i] * radius[i]);
+//   }
+
+//   return output;
+// };
+// console.log(calculateArea(radius));
+
+// // but now what if we are asked to calculate the circuference of these given radii, we would have done something like below:
+// const calculateCircumference = function (radius) {
+//   const output = [];
+
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(2 * Math.PI * radius[i]);
+//   }
+
+//   return output;
+// };
+// console.log(calculateCircumference(radius));
+
+// // and now let's say we need to calculate diameter for the same radii given, we would have again went and done this same thing
+// const calculateDiameter = function (radius) {
+//   const output = [];
+
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(2 * radius[i]);
+//   }
+
+//   return output;
+// };
+// console.log(calculateDiameter(radius));
+
+// and now this is not a good way of doing code like this, we are continously repeating ourselves, copying and pasting the code again and again by changing name and logic into it. but that's not the case in real world programming.
+
+// in real world situations, we cannot copy paste, we need to follow the DRY principle that stands for don't repeat yourself. so we can optimize the above in the following way.
+
+// STEP 1: take out the logic (the dynamic part of the code)
+const area = function (radius) {
+  return Math.PI * radius * radius;
+};
+
+const circuference = function (radius) {
+  return 2 * Math.PI * radius;
+};
+
+const diameter = function (radius) {
+  return 2 * radius;
+};
+
+// // STEP 2: Make the repeated code generic and try to put the logic inside the function from outside, like earlier we were passing radius to all of the functions, let's just pass a logic this time
+// const calculate = function (radius, logic) {
+//   const output = [];
+
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(logic(radius[i]));
+//   }
+
+//   return output;
+// };
+
+// // STEP 3: Now call this calculate function along with the logic you wrote above
+// console.log("area using calculate function\n" + calculate(radius, area));
+// console.log(calculate(radius, circuference));
+// console.log(calculate(radius, diameter));
+
+// BEAUTY OF FUNCTIONAL PROGRAMMING
+// above is the beauty of the functional programming that it made old fashioned code a modular one.
+// if we see the above code, we can see that each and every function has its own unique task to perform area, circumference and diameter just need to apply the calculation logic and the function calculate has its own unique task of creating an array and pushing the calculated values in output array and return the output array
+
+// this is the beauty of functional programming that we think the larger chunk of code in small functional and reusable components rather than repeating code again and again!!
+
+// MAP POLYFILL
+// Above we can see that the calculate function is looking just like the map function. map is very common higher order function and it maps the whole array passed to it to some logic. Like if we call the area function using this map function, let's see what will happen:-
+// console.log("area using map function\n" + radius.map(area));
+
+// and we can see that we are getting same output. so we can say that we have written our implementation of map in the calculate function. or in other words we created a polyfill for the map function using our calculate function
+
+// but now we can have an argument that for the map function, we call it using array's reference like array.map(), but we are calling calculate as a normal function and passing the radius into it as an argument. so to achieve array.calculate() we can simply make the function as below:-
+
+Array.prototype.calculate = function (logic) {
+  const output = [];
+
+  for (let i = 0; i < this.length; i++) {
+    output.push(logic(this[i]));
+  }
+
+  return output;
+};
+
+// as soon as we add Array.prototype to the calculate function, it becomes available for all of the arrays! and now we can call it like below -
+console.log(radius.calculate(area));
+console.log(radius.calculate(circuference));
+console.log(radius.calculate(diameter));
+
 // =====================================================================================
