@@ -184,7 +184,7 @@ var b = 100;
 // // let's understand this with another example
 
 // // let's say we are given an array of radii of circle, and we need to calculate its area, so we will do something like below:
-const radius = [3, 1, 2, 4];
+// const radius = [3, 1, 2, 4];
 // const calculateArea = function (radius) {
 //   const output = [];
 
@@ -220,66 +220,109 @@ const radius = [3, 1, 2, 4];
 // };
 // console.log(calculateDiameter(radius));
 
-// and now this is not a good way of doing code like this, we are continously repeating ourselves, copying and pasting the code again and again by changing name and logic into it. but that's not the case in real world programming.
+// // and now this is not a good way of doing code like this, we are continously repeating ourselves, copying and pasting the code again and again by changing name and logic into it. but that's not the case in real world programming.
 
-// in real world situations, we cannot copy paste, we need to follow the DRY principle that stands for don't repeat yourself. so we can optimize the above in the following way.
+// // in real world situations, we cannot copy paste, we need to follow the DRY principle that stands for don't repeat yourself. so we can optimize the above in the following way.
 
-// STEP 1: take out the logic (the dynamic part of the code)
-const area = function (radius) {
-  return Math.PI * radius * radius;
-};
+// // STEP 1: take out the logic (the dynamic part of the code)
+// const area = function (radius) {
+//   return Math.PI * radius * radius;
+// };
 
-const circuference = function (radius) {
-  return 2 * Math.PI * radius;
-};
+// const circuference = function (radius) {
+//   return 2 * Math.PI * radius;
+// };
 
-const diameter = function (radius) {
-  return 2 * radius;
-};
+// const diameter = function (radius) {
+//   return 2 * radius;
+// };
 
-// // STEP 2: Make the repeated code generic and try to put the logic inside the function from outside, like earlier we were passing radius to all of the functions, let's just pass a logic this time
-// const calculate = function (radius, logic) {
+// // // STEP 2: Make the repeated code generic and try to put the logic inside the function from outside, like earlier we were passing radius to all of the functions, let's just pass a logic this time
+// // const calculate = function (radius, logic) {
+// //   const output = [];
+
+// //   for (let i = 0; i < radius.length; i++) {
+// //     output.push(logic(radius[i]));
+// //   }
+
+// //   return output;
+// // };
+
+// // // STEP 3: Now call this calculate function along with the logic you wrote above
+// // console.log("area using calculate function\n" + calculate(radius, area));
+// // console.log(calculate(radius, circuference));
+// // console.log(calculate(radius, diameter));
+
+// // BEAUTY OF FUNCTIONAL PROGRAMMING
+// // above is the beauty of the functional programming that it made old fashioned code a modular one.
+// // if we see the above code, we can see that each and every function has its own unique task to perform area, circumference and diameter just need to apply the calculation logic and the function calculate has its own unique task of creating an array and pushing the calculated values in output array and return the output array
+
+// // this is the beauty of functional programming that we think the larger chunk of code in small functional and reusable components rather than repeating code again and again!!
+
+// // MAP POLYFILL
+// // Above we can see that the calculate function is looking just like the map function. map is very common higher order function and it maps the whole array passed to it to some logic. Like if we call the area function using this map function, let's see what will happen:-
+// // console.log("area using map function\n" + radius.map(area));
+
+// // and we can see that we are getting same output. so we can say that we have written our implementation of map in the calculate function. or in other words we created a polyfill for the map function using our calculate function
+
+// // but now we can have an argument that for the map function, we call it using array's reference like array.map(), but we are calling calculate as a normal function and passing the radius into it as an argument. so to achieve array.calculate() we can simply make the function as below:-
+
+// Array.prototype.calculate = function (logic) {
 //   const output = [];
 
-//   for (let i = 0; i < radius.length; i++) {
-//     output.push(logic(radius[i]));
+//   for (let i = 0; i < this.length; i++) {
+//     output.push(logic(this[i]));
 //   }
 
 //   return output;
 // };
 
-// // STEP 3: Now call this calculate function along with the logic you wrote above
-// console.log("area using calculate function\n" + calculate(radius, area));
-// console.log(calculate(radius, circuference));
-// console.log(calculate(radius, diameter));
+// // as soon as we add Array.prototype to the calculate function, it becomes available for all of the arrays! and now we can call it like below -
+// console.log(radius.calculate(area));
+// console.log(radius.calculate(circuference));
+// console.log(radius.calculate(diameter));
 
-// BEAUTY OF FUNCTIONAL PROGRAMMING
-// above is the beauty of the functional programming that it made old fashioned code a modular one.
-// if we see the above code, we can see that each and every function has its own unique task to perform area, circumference and diameter just need to apply the calculation logic and the function calculate has its own unique task of creating an array and pushing the calculated values in output array and return the output array
+// =====================================================================================
 
-// this is the beauty of functional programming that we think the larger chunk of code in small functional and reusable components rather than repeating code again and again!!
+// ============================= map, filter and reduce ================================
 
-// MAP POLYFILL
-// Above we can see that the calculate function is looking just like the map function. map is very common higher order function and it maps the whole array passed to it to some logic. Like if we call the area function using this map function, let's see what will happen:-
-// console.log("area using map function\n" + radius.map(area));
+// Basic ones are covered in the notes.
 
-// and we can see that we are getting same output. so we can say that we have written our implementation of map in the calculate function. or in other words we created a polyfill for the map function using our calculate function
+// Tricky examples -
+// Tricky MAP() : let's say we have an array of objects containing user data, and we want a list of full names of the users
+const users = [
+  { firstName: "Shivani", lastName: "Raichandani", age: 24 },
+  { firstName: "Pooja", lastName: "Vardani", age: 25 },
+  { firstName: "Vanshika", lastName: "Puri", age: 23 },
+  { firstName: "Shweta", lastName: "Tirthani", age: 22 },
+  { firstName: "Luckysha", lastName: "Khubchandani", age: 24 },
+];
 
-// but now we can have an argument that for the map function, we call it using array's reference like array.map(), but we are calling calculate as a normal function and passing the radius into it as an argument. so to achieve array.calculate() we can simply make the function as below:-
+const output = users.map((user) => user.firstName + " " + user.lastName);
+console.log(output);
 
-Array.prototype.calculate = function (logic) {
-  const output = [];
+// Tricky REDUCE() : consider using the same array but this time you have to find out unique ages present in the objects and how many of them have same age, maintain a count of it. output should look like this - {24: 2, 25: 1, 23: 1, 22: 1}
 
-  for (let i = 0; i < this.length; i++) {
-    output.push(logic(this[i]));
+// here what we did is called reduce function and the callback function in the reduce takes two parameters accumulator and current, so we gave {} (empty object) as the initial value of the accumulator in the second parameter of reduce function, and then we simply cheked that if the age is already been counted and is present in the accumulator, then we just incremented it otherwise we initiated it with 1 and we just returned the accumulator
+const op = users.reduce(function (acc, curr) {
+  if (acc[curr.age]) {
+    acc[curr.age] = ++acc[curr.age];
+  } else {
+    acc[curr.age] = 1;
   }
 
-  return output;
-};
+  return acc;
+}, {});
+console.log(op);
 
-// as soon as we add Array.prototype to the calculate function, it becomes available for all of the arrays! and now we can call it like below -
-console.log(radius.calculate(area));
-console.log(radius.calculate(circuference));
-console.log(radius.calculate(diameter));
+// CHAINING MAP, FILTER and REDUCE
+// considering the same array "users" we need to filter out the first names of all the people with age less than 24
+const opChain = users
+  .filter((user) => user.age < 24)
+  .map((user) => user.firstName);
+
+console.log(opChain);
+
+// HOMEWORK: do the above filter + map thing using the reduce method
 
 // =====================================================================================
