@@ -324,5 +324,13 @@ const opChain = users
 console.log(opChain);
 
 // HOMEWORK: do the above filter + map thing using the reduce method
+const opReduce = users.reduce(function (acc, curr) {
+  if (curr.age < 24) {
+    acc.push(curr.firstName);
+  }
+  return acc;
+}, []);
+
+console.log(opReduce);
 
 // =====================================================================================
