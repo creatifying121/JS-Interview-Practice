@@ -286,52 +286,52 @@ var b = 100;
 
 // ============================= map, filter and reduce ================================
 
-// Basic ones are covered in the notes.
+// // Basic ones are covered in the notes.
 
-// Tricky examples -
-// Tricky MAP() : let's say we have an array of objects containing user data, and we want a list of full names of the users
-const users = [
-  { firstName: "Shivani", lastName: "Raichandani", age: 24 },
-  { firstName: "Pooja", lastName: "Vardani", age: 25 },
-  { firstName: "Vanshika", lastName: "Puri", age: 23 },
-  { firstName: "Shweta", lastName: "Tirthani", age: 22 },
-  { firstName: "Luckysha", lastName: "Khubchandani", age: 24 },
-];
+// // Tricky examples -
+// // Tricky MAP() : let's say we have an array of objects containing user data, and we want a list of full names of the users
+// const users = [
+//   { firstName: "Shivani", lastName: "Raichandani", age: 24 },
+//   { firstName: "Pooja", lastName: "Vardani", age: 25 },
+//   { firstName: "Vanshika", lastName: "Puri", age: 23 },
+//   { firstName: "Shweta", lastName: "Tirthani", age: 22 },
+//   { firstName: "Luckysha", lastName: "Khubchandani", age: 24 },
+// ];
 
-const output = users.map((user) => user.firstName + " " + user.lastName);
-console.log(output);
+// const output = users.map((user) => user.firstName + " " + user.lastName);
+// console.log(output);
 
-// Tricky REDUCE() : consider using the same array but this time you have to find out unique ages present in the objects and how many of them have same age, maintain a count of it. output should look like this - {24: 2, 25: 1, 23: 1, 22: 1}
+// // Tricky REDUCE() : consider using the same array but this time you have to find out unique ages present in the objects and how many of them have same age, maintain a count of it. output should look like this - {24: 2, 25: 1, 23: 1, 22: 1}
 
-// here what we did is called reduce function and the callback function in the reduce takes two parameters accumulator and current, so we gave {} (empty object) as the initial value of the accumulator in the second parameter of reduce function, and then we simply cheked that if the age is already been counted and is present in the accumulator, then we just incremented it otherwise we initiated it with 1 and we just returned the accumulator
-const op = users.reduce(function (acc, curr) {
-  if (acc[curr.age]) {
-    acc[curr.age] = ++acc[curr.age];
-  } else {
-    acc[curr.age] = 1;
-  }
+// // here what we did is called reduce function and the callback function in the reduce takes two parameters accumulator and current, so we gave {} (empty object) as the initial value of the accumulator in the second parameter of reduce function, and then we simply cheked that if the age is already been counted and is present in the accumulator, then we just incremented it otherwise we initiated it with 1 and we just returned the accumulator
+// const op = users.reduce(function (acc, curr) {
+//   if (acc[curr.age]) {
+//     acc[curr.age] = ++acc[curr.age];
+//   } else {
+//     acc[curr.age] = 1;
+//   }
 
-  return acc;
-}, {});
-console.log(op);
+//   return acc;
+// }, {});
+// console.log(op);
 
-// CHAINING MAP, FILTER and REDUCE
-// considering the same array "users" we need to filter out the first names of all the people with age less than 24
-const opChain = users
-  .filter((user) => user.age < 24)
-  .map((user) => user.firstName);
+// // CHAINING MAP, FILTER and REDUCE
+// // considering the same array "users" we need to filter out the first names of all the people with age less than 24
+// const opChain = users
+//   .filter((user) => user.age < 24)
+//   .map((user) => user.firstName);
 
-console.log(opChain);
+// console.log(opChain);
 
-// HOMEWORK: do the above filter + map thing using the reduce method
-const opReduce = users.reduce(function (acc, curr) {
-  if (curr.age < 24) {
-    acc.push(curr.firstName);
-  }
-  return acc;
-}, []);
+// // HOMEWORK: do the above filter + map thing using the reduce method
+// const opReduce = users.reduce(function (acc, curr) {
+//   if (curr.age < 24) {
+//     acc.push(curr.firstName);
+//   }
+//   return acc;
+// }, []);
 
-console.log(opReduce);
+// console.log(opReduce);
 
 // =====================================================================================
 
