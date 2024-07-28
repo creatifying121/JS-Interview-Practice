@@ -9,7 +9,7 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
     <!-- including jquery in my page end -->
 
-    <style>
+    <!-- <style>
       .common {
         width: 200px;
         height: 200px;
@@ -23,7 +23,7 @@
         background-color: red;
         margin-top: 10px;
       }
-    </style>
+    </style> -->
 
     <!-- including jquery file -->
     <script src="jquery.js"></script>
@@ -32,15 +32,24 @@
   <body>
     <!-- working with jquery -->
 
-    <div id="circle" class="common"></div>
+    <p style="display: none">
+      hey this is the text will be there when the button will be clicked
+    </p>
+    <button>click me to see the text</button>
+
+    <!-- <div id="circle" class="common"></div>
     <div id="sq1" class="common"></div>
-    <div id="sq2" class="common"></div>
+    <div id="sq2" class="common"></div> -->
 
     <!-- <p>this is a random text</p> -->
 
     <!-- <iframe src="https://jquery.com" frameborder="0"></iframe> -->
     <!-- working with jquery end -->
     <script>
+      $("button").click(function () {
+        $("p").fadeIn("slow");
+      });
+
       // // checking if jquery is included via that googleapis.com script or not
       // if (jQuery == undefined) {
       //   console.log(jQuery);
@@ -77,9 +86,9 @@
       // });
 
       // this is the solution
-      $("div").click(function () {
-        $(this).css("display", "none");
-      });
+      // $("div").click(function () {
+      //   $(this).css("display", "none");
+      // });
 
       // $("#circle").click(function () {
       //   $("#circle").css("display", "none");
