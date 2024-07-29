@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- including jquery in my page -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <!-- including jquery in my page end -->
+
+    <style>
+      #small {
+        width: 100px;
+        height: 100px;
+        background-color: beige;
+        margin-bottom: 50px;
+      }
+      #large {
+        width: 200px;
+        height: 200px;
+        background-color: brown;
+      }
+    </style>
+
+    <!-- including jquery file -->
+    <script src="jquery.js"></script>
+    <!-- including jquery file end -->
+
+    <!-- including jquery ui -->
+    <link
+      rel="stylesheet"
+      href="./jquery-ui-1.13.3/jquery-ui-1.13.3/jquery-ui.css"
+    />
+
+    <script src="./jquery-ui-1.13.3/jquery-ui-1.13.3/jquery-ui.js"></script>
+    <!-- including jquery ui end -->
+  </head>
+  <body>
+    <!-- working with jquery -->
+
+    <!-- <p style="display: none">
+      hey this is the text will be there when the button will be clicked
+    </p>
+    <button>click me to see the text</button> -->
+
+    <!-- <div id="circle" class="common"></div>
+    <div id="sq1" class="common"></div>
+    <div id="sq2" class="common"></div> -->
+
+    <!-- <p>this is a random text</p> -->
+
+    <!-- <iframe src="https://jquery.com" frameborder="0"></iframe> -->
+
+    <!-- <div id="draggable" class="ui-widget-content">
+      <p>Drag me around</p>
+    </div> -->
+
+    <div id="small"></div>
+    <div id="large"></div>
+    <!-- working with jquery end -->
+    <script>
+      $("#small").draggable();
+      $("#large").droppable({
+        drop: function (event, ui) {
+          alert("element dropped in here");
+        },
+      });
+
+      // $(function () {
+      //   $("#draggable").draggable();
+      // });
+      // $("button").click(function () {
+      //   $("p").fadeIn("slow");
+      // });
+
+      // // checking if jquery is included via that googleapis.com script or not
+      // if (jQuery == undefined) {
+      //   console.log(jQuery);
+      //   alert("jquery not included");
+      // } else {
+      //   console.log(jQuery);
+      //   alert("jqurey included");
+      // }
+      // // checking if jquery is included via that googleapis.com script or not end
+
+      // scripting jquery
+      // i want to show an alert when circle or square is clicked
+      // $("#circle").click(function () {
+      //   // alert("circle clicked");
+      //   $("#circle").css("background-color", "red");
+      //   $("#circle").css("width", "400px");
+      // });
+
+      // $("#sq1").click(function () {
+      //   alert("square clicked");
+      // });
+
+      // $("#sq2").hover(function () {
+      //   alert("sq 2 clicked");
+      // });
+
+      // $("p").click(function () {
+      //   $("p").html("text changed");
+      // });
+
+      // with below code we were facing a problem that every shape was removed, but it can be resolved in below example
+      // $("div").click(function () {
+      //   $("div").css("display", "none");
+      // });
+
+      // this is the solution
+      // $("div").click(function () {
+      //   $(this).css("display", "none");
+      // });
+
+      // $("#circle").click(function () {
+      //   $("#circle").css("display", "none");
+      // });
+
+      // $("#sq1").click(function () {
+      //   $("#sq1").css("display", "none");
+      // });
+
+      // $("#sq2").click(function () {
+      //   $("#sq2").css("display", "none");
+      // });
+
+      // changing attribute of an element using jquery
+      // $("iframe").hover(function () {
+      //   $("iframe").attr("src", "https://www.google.com/");
+      // });
+      // changing attribute of an element using jquery end
+      // scripting jquery end
+    </script>
+    <!-- <script src="./index.js"></script> -->
+  </body>
+</html>
