@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide effects</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // // slide down
+        // $(".slide").click(function () {
+        //   $(".content").slideDown();
+        // });
+
+        // // slide up
+        // $(".slide").click(function () {
+        //   $(".content").slideUp("slow");
+        // });
+
+        // slide toggle
+        $(".slide").click(function () {
+          $(".content").slideToggle(2000);
+        });
+      });
+    </script>
+
+    <style>
+      .slide,
+      .content {
+        padding: 15px;
+        text-align: center;
+        font-size: 25px;
+        background-color: orange;
+        border: 2px solid blue;
+      }
+      .content {
+        padding: 75px;
+        /* removing display none for slide up and slide toggle */
+        /* display: none; */
+        font-size: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>slide effects</h1>
+
+    <div class="slide">click here to slide</div>
+    <div class="content">i am slided</div>
+  </body>
+</html>

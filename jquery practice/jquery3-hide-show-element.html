@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hide and show element in jquery</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // $("h2").click(function () {
+        //   $(this).hide();
+        // });
+
+        $(".hide").click(function () {
+          $("p").hide();
+        });
+
+        $(".show").click(function () {
+          $("p").show();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <h2>how're you?</h2>
+
+    <p>try clicking h2 and see the magic</p>
+
+    <button class="hide">hide p</button>
+    <button class="show">show p</button>
+  </body>
+</html>

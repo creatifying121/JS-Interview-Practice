@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animate</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".animate").click(function () {
+          $(this).animate({
+            left: "500px",
+
+            // adding more properties
+            width: "100px",
+            height: "100px",
+            fontSize: "25px",
+          });
+        });
+      });
+    </script>
+
+    <style>
+      .animate {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        color: white;
+        padding: 50px;
+        text-align: center;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Animate</h1>
+
+    <div class="animate">I am being animated</div>
+  </body>
+</html>

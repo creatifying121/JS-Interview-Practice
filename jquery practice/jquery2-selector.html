@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selectors in jquery</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      // // element selector
+      // $(document).ready(function () {
+      //   $("button").click(function () {
+      //     $("div").hide();
+      //   });
+      // });
+
+      // // id selector
+      // $(document).ready(function () {
+      //   $("button").click(function () {
+      //     $("#hide").hide();
+      //   });
+      // });
+
+      // class selector
+      $(document).ready(function () {
+        $("button").click(function () {
+          $(".hide").hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>hello there</h1>
+    <h2>i am learning jquery</h2>
+
+    <div id="hide" class="hide">
+      <p>how're you</p>
+      <p>click on the button below to hide me</p>
+    </div>
+
+    <button>hide</button>
+  </body>
+</html>
