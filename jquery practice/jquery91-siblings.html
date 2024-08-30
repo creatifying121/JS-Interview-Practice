@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finding siblings</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      // siblings() => return the siblings of selected element
+      // next() => returns the next sibling of selected element
+      // nextAll() => returns all the next siblings of selected element
+      // nextUntil() => returns all next siblings between two elements
+      // prev() => returns the previous sibling of selected element
+      // prevAll() => returns all the previous siblings of selected element
+      // prevUntil() => returns all previous siblings between two elements
+
+      // $(document).ready(function () {
+      //   $("p")
+      //     .siblings()
+      //     .css({ color: "blue", "font-size": "24px", border: "2px solid red" }); // all siblings h1, h2, ol were highlighted
+      // });
+
+      // $(document).ready(function () {
+      //   $("p")
+      //     .next()
+      //     .css({ color: "blue", "font-size": "24px", border: "2px solid red" }); // h2 is highlighted
+      // });
+
+      // $(document).ready(function () {
+      //   $("p")
+      //     .nextAll()
+      //     .css({ color: "blue", "font-size": "24px", border: "2px solid red" }); // h2 and ol are highlighted as these are all the next siblings of p
+      // });
+
+      // $(document).ready(function () {
+      //   $("h1")
+      //     .nextUntil("ol")
+      //     .css({ color: "blue", "font-size": "24px", border: "2px solid red" }); // p and h2 are highlighted
+      // });
+
+      // $(document).ready(function () {
+      //   $("ol")
+      //     .prev()
+      //     .css({ color: "blue", "font-size": "24px", border: "2px solid red" }); // h2 is highlighted
+      // });
+
+      // $(document).ready(function () {
+      //   $("ol")
+      //     .prevAll()
+      //     .css({ color: "blue", "font-size": "24px", border: "2px solid red" }); // h1 , p and h2 are highlighted
+      // });
+
+      $(document).ready(function () {
+        $("ol")
+          .prevUntil("h1")
+          .css({ color: "blue", "font-size": "24px", border: "2px solid red" }); // p and h2 are highlighted
+      });
+    </script>
+
+    <style>
+      .siblings * {
+        color: orange;
+        display: block;
+        border: 4px dashed blue;
+        font-size: 20px;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="siblings">
+      <div style="width: 600px">
+        <h1>h1</h1>
+        <p>p</p>
+        <h2>h2</h2>
+        <ol>
+          ol
+          <li>li</li>
+          <li>li</li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

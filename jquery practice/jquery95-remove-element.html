@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>remove element</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      // remove() => removes element along with the child element of selected element
+      // empty() => does the same work as remove but does not remove element from dom, just empties it
+
+      $(document).ready(function () {
+        // remove()
+        // $("button").click(function () {
+        //   $("ul").remove();
+        //   $("p").html("ul with all lis removed");
+        // });
+
+        // empty()
+        $("#btn1").click(function () {
+          $("p").empty();
+        });
+
+        $("#btn2").click(function () {
+          $("ul").empty();
+        });
+      });
+    </script>
+
+    <style>
+      p {
+        width: 250px;
+        height: 250px;
+        background-color: saddlebrown;
+        font-size: 20px;
+      }
+      ul {
+        width: 200px;
+        height: 200px;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- remove() -->
+    <!-- <h1>hello</h1>
+
+    <ul>
+      ul
+      <li>li</li>
+      <li>li</li>
+      <li>li</li>
+    </ul>
+
+    <p>ul along with all its child elements (li) will be removed</p>
+
+    <button>Click me to remove elements (ul)</button> -->
+
+    <!-- ------------------------------------------------------------- -->
+
+    <!-- empty() -->
+    <h1>empty</h1>
+
+    <p>This line will be removed (not the element, just the content)</p>
+
+    <ul>
+      ul
+
+      <li>li</li>
+      <li>li</li>
+      <li>li</li>
+    </ul>
+
+    <button id="btn1">Click me to empty p</button>
+    <button id="btn2">Click me to empty ul</button>
+  </body>
+</html>

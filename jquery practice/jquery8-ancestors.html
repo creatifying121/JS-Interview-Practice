@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finding ancestors</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      // parent() => returns direct parent of selected element
+      // parents() => returns all the ancestors of selected element
+      // parentsUntil() => returns ancestors between two elements
+
+      // $(document).ready(function () {
+      //   $("span").parent().css({
+      //     "background-color": "skyblue",
+      //     color: "blue",
+      //     border: "2px solid red",
+      //   });
+      // });
+
+      // $(document).ready(function () {
+      //   $("span").parents().css({
+      //     "font-size": "24px",
+      //     color: "blue",
+      //     border: "2px solid red",
+      //   });
+      // });
+
+      $(document).ready(function () {
+        $("span").parentsUntil("div").css({
+          "font-size": "24px",
+          color: "blue",
+          border: "2px solid red",
+        });
+      });
+    </script>
+
+    <style>
+      .ancestors * {
+        display: block;
+        /* border: 2px solid black; */
+        /* below border is set for parentsUntil method */
+        border: 4px dashed black;
+        font-size: 20px;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ancestors">
+      <div style="width: 600px">
+        great grandparent (div)
+        <ul>
+          grandparent(ul)
+          <li>
+            parent(li)
+            <span>child 1 span1</span>
+            <span>child2 span2</span>
+          </li>
+          <li>one more li</li>
+        </ul>
+        <ol>
+          <li><strong></strong></li>
+          <li><strong></strong></li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

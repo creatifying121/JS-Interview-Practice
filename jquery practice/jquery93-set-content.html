@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set content</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      // text() and html() => to set the content of selected element
+      // val() => to set the form values of selected ones
+
+      // text() and html() example
+      // $(document).ready(function () {
+      //   $("#btn1").click(function () {
+      //     $("p").text("This is the demo text via text()");
+      //   });
+
+      //   $("#btn2").click(function () {
+      //     $("p").html(
+      //       "This is the <em>demo</em> <strong>text</strong> via html()"
+      //     );
+      //   });
+      // });
+
+      // val() example
+      $(document).ready(function () {
+        $("#btn1").click(function () {
+          $("#ename").val("Shivani");
+        });
+
+        $("#btn2").click(function () {
+          $("#edept").val("IT");
+        });
+
+        $("#btn3").click(function () {
+          $("#ezone").val("South");
+        });
+      });
+    </script>
+
+    <style>
+      /* p {
+        font-size: 20px;
+      } */
+      button {
+        font-size: 22px;
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>hello there</h1>
+
+    <p>
+      This text will be changed, click any of the button below to see the magic
+    </p>
+
+    <button id="btn1">set text</button>
+    <button id="btn2">set html</button> -->
+
+    <!-- val() example -->
+    <h2>Employee Records</h2>
+
+    <form>
+      <p>
+        Employee name:
+        <input type="text" id="ename" value="" />
+      </p>
+      <p>
+        Employee department:
+        <input type="text" id="edept" value="" />
+      </p>
+      <p>
+        Employee zone:
+        <input type="text" id="ezone" value="" />
+      </p>
+
+      <button id="btn1" type="button">Set Employee Name</button>
+      <button id="btn2" type="button">Set Employee department</button>
+      <button id="btn3" type="button">Set Employee zone</button>
+    </form>
+  </body>
+</html>

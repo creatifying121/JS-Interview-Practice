@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>remove css class</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      // removeClass() => to remove the class from elements
+      // 1. remove a single class
+      // 2. remove a single class from multiple elements
+      $(document).ready(function () {
+        // // remove a single class
+        // $("button").click(function () {
+        //   $("h1").removeClass("demo");
+        // });
+
+        // remove single class from multiple elements
+        $("button").click(function () {
+          $("h1, h2, h3").removeClass("demo");
+        });
+      });
+    </script>
+
+    <style>
+      .demo {
+        background-color: blueviolet;
+        border: 4px solid purple;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- remove single class from single element -->
+    <!-- <h1 class="demo">heading 1</h1>
+    <button>remove the class from heading</button> -->
+
+    <!-- remove single class from multiple elements -->
+    <h1 class="demo">heading 1</h1>
+    <h2 class="demo">heading 2</h2>
+    <h3 class="demo">heading 3</h3>
+    <h4 class="demo">heading 4</h4>
+    <button>remove the class from heading1, 2 and 3</button>
+  </body>
+</html>

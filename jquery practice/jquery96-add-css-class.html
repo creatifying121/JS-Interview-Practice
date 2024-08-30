@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add css class</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // we can use addClass() method to add css class to any selected element
+        // 1. we can add single class
+        // 2. we can add multiple classes
+        // 3. add single class to different elmeents
+        // 4. add multiple classes to different elements
+
+        // // single class to single element
+        // $("button").click(function () {
+        //   $("h1").addClass("demo");
+        // });
+
+        // // multiple classes to single element
+        // $("button").click(function () {
+        //   $("h1").addClass("demo example");
+        // });
+
+        // // single class to multiple elements
+        // $("button").click(function () {
+        //   $("h1, h2, h3").addClass("demo");
+        // });
+
+        // multiple classes to multiple elements
+        $("button").click(function () {
+          $("h1, h2, h3").addClass("demo example");
+        });
+      });
+    </script>
+
+    <style>
+      .demo {
+        background-color: blueviolet;
+        color: white;
+      }
+
+      .example {
+        border: 4px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- add single class -->
+    <!-- <h1>heading 1</h1>
+    <p>This is demo text</p>
+
+    <h2>heading 2</h2>
+    <p>This is another demo text</p>
+
+    <button>add single class in single element</button> -->
+
+    <!-- add multiple classes -->
+    <!-- <h1>heading 1</h1>
+    <p>This is demo text</p>
+
+    <h2>heading 2</h2>
+    <p>This is another demo text</p>
+
+
+    <button>add multiple classes in single element</button> -->
+
+    <!-- add single class to multiple elements -->
+    <!-- <h1>heading 1</h1>
+    <p>This is demo text</p>
+
+    <h2>heading 2</h2>
+    <p>This is another demo text</p>
+
+    <h3>heading 2</h3>
+    <p>This is yet another demo text</p>
+
+    <button>add single class in multiple elements</button> -->
+
+    <!-- add single class to multiple elements -->
+    <h1>heading 1</h1>
+    <p>This is demo text</p>
+
+    <h2>heading 2</h2>
+    <p>This is another demo text</p>
+
+    <h3>heading 2</h3>
+    <p>This is yet another demo text</p>
+
+    <button>add multiple classes in multiple elements</button>
+  </body>
+</html>

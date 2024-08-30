@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get set content</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      // text() and html() => to get the text of selected element
+      // val() => to get the content from the form fields
+
+      // $(document).ready(function () {
+      //   $("#btn1").click(function () {
+      //     alert($("#demo").text()); // this will return whole text in p element (ignoring the styles applied to it)
+      //   });
+
+      //   $("#btn2").click(function () {
+      //     alert($("#demo").html()); // this will return whole text inside p element along with the tags (em and strong)
+      //   });
+      // });
+
+      $(document).ready(function () {
+        $("#btn1").click(function () {
+          alert($("#ename").val());
+        });
+
+        $("#btn2").click(function () {
+          alert($("#edept").val());
+        });
+
+        $("#btn3").click(function () {
+          alert($("#ezone").val());
+        });
+      });
+    </script>
+
+    <style>
+      /* text() and html() example */
+      /* #demo {
+        font-size: 22px;
+        background-color: black;
+        color: white;
+      }
+      button {
+        font-size: 30px;
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 15px;
+      } */
+
+      /* ******************************************************************** */
+
+      /* val() example */
+      button {
+        font-size: 30px;
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- text() and html() example -->
+    <!-- <p id="demo">
+      This is a <em>demo text</em>. This is another <strong>demo text</strong>.
+    </p>
+
+    <p>click below buttons to get text content and html content</p>
+
+    <button id="btn1">Text</button>
+    <button id="btn2">HTML</button> -->
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!-- val() example -->
+    <h2>Employee Records</h2>
+
+    <form>
+      <p>
+        Employee name:
+        <input type="text" id="ename" value="Shivani Raichandani" />
+      </p>
+      <p>
+        Employee department:
+        <input type="text" id="edept" value="Engineering" />
+      </p>
+      <p>
+        Employee zone:
+        <input type="text" id="ezone" value="North-East" />
+      </p>
+
+      <button id="btn1">Get Employee Name</button>
+      <button id="btn2">Get Employee department</button>
+      <button id="btn3">Get Employee zone</button>
+    </form>
+  </body>
+</html>

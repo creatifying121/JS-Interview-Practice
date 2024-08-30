@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add element using jquery</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // append() => it is used to add the content at the end of selected element
+        // $("#btn").click(function () {
+        //   $("h1").append(" <em>Raichandani</em>");
+        // });
+
+        // after() => add content after the selected element
+        // $("#btn").click(function () {
+        //   $("h2").after("<p>I am a demo p text</p>");
+        // });
+
+        // prepend() => add content at the start of selected element
+        // $("#btn").click(function () {
+        //   $("h1").prepend("Heyy ");
+        // });
+
+        // before() => to add content before the selected element
+        $("#btn").click(function () {
+          $("h2").before("<p>I am a demo p text</p>");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- append() -->
+    <!-- <h1>Shivani</h1>
+    <button id="btn">Click me to append some text to this heading above</button> -->
+
+    <!-- after() -->
+    <!-- <h1>Shivani</h1>
+    <h2>Demo text 1</h2>
+    <h2>Demo text 2</h2>
+    <h3>Demo text 3</h3>
+    <button id="btn">Click me to add some text after the h2</button> -->
+
+    <!-- prepend() -->
+    <!-- <h1>Shivani</h1>
+    <button id="btn">Click me to prepend some text to this h1</button> -->
+
+    <!-- before() -->
+    <h1>Shivani</h1>
+    <h2>Demo text 1</h2>
+    <h2>Demo text 2</h2>
+    <h3>Demo text 3</h3>
+    <button id="btn">Click me to add some text before the h2</button>
+  </body>
+</html>
